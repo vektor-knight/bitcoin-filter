@@ -1,0 +1,14 @@
+{
+  "name": "kraken_test",
+  "version": "1.5.3",
+  "description": "Process transactions and filter them for valid deposits.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "Sartaj Hundal <sartaj.hundal@ucalgary.ca>",
+  "dependencies": {
+    "mysql": "^2.15.0"
+  }
+}
+

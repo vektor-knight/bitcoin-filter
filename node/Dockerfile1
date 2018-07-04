@@ -1,0 +1,15 @@
+FROM node:slim
+# change to mhart sometime
+
+#COPY package*.json .
+COPY . .
+
+RUN npm install
+#RUN apk add --no-cache bash
+
+#EXPOSE 8080
+EXPOSE 3306
+
+RUN chmod +x wait.sh
+CMD ["./wait.sh", "mysql:3306", "--", "npm", "start"]
+#CMD ["npm", "start"]

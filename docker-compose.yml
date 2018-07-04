@@ -1,0 +1,24 @@
+version: '3.6'
+
+services:
+   db:
+     image: mysql/mysql-server:5.7
+     volumes:
+       - ./docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
+     restart: always
+     environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: krakendb
+       MYSQL_USER: krakenAdmin
+       MYSQL_PASSWORD: kraken
+
+   client:
+     build: .
+     depends_on:
+        - db
+     restart: always
+     environment:
+       DB_HOST: db
+       DB_USER: krakenAdmin
+       DB_PASSWORD: kraken
+       NODE_ENV: production
